@@ -2,13 +2,13 @@ public class MonthData {
     int[] days = new int[30];
 
     MonthData() {
-        for(int i = 0; i < days.length; i++) {
+        for(int i = 0; i < days.length; i++) { // Мы еще не проходили списки на момент ТЗ, поэтому я старался не использовать знания полученные после ТЗ, чтобы понять базу
             days[i] = 0;
         }
 
     }
 
-    void printDaysAndStepsFromMonth(int goalByStepsPerDay) {
+    void printDaysAndStepsFromMonth() { //Да, теперь вижу что переменная goalStepsPerDay тут совсем не нужна.
         for(int i = 0; i < days.length; i++) {
             int dayOfMonth = i + 1;
             System.out.println("День " + dayOfMonth + ". Пройдено: " + days[i] + " шагов. Молодцом!");
@@ -58,22 +58,19 @@ public class MonthData {
     }
 
     int averageSteps() {
-        int daysQount = 0;
+        int daysCount = 0;// c Count вместо Qount читать гораздо проще, самого смущало в момент создания переменной было Q
         int averageStepsInMonth;
 
         for(int i = 0; i < days.length; ++i) {
             if (days[i] != 0) {
-                ++daysQount;
+                ++daysCount;
             }
         }
 
-        if (daysQount == 0) {
-            daysQount = 1;
-            averageStepsInMonth = sumStepsFromMonth() / daysQount;
-        } else {
-            averageStepsInMonth = sumStepsFromMonth() / daysQount;
+        if (daysCount == 0) {
+            daysCount = 1;
         }
-
+        averageStepsInMonth = sumStepsFromMonth() / daysCount;
         return averageStepsInMonth;
     }
 }

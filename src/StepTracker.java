@@ -15,18 +15,16 @@ public class StepTracker {
 
     }
 
-    String checkGoalPerDay() {
+    String checkGoalPerDay() { // Понял, относительно return
         String text;
         if (goalByStepsPerDay <= 5000) {
             text = " Ты можешь лучше!";
-            return text;
-        } else if (goalByStepsPerDay > 5000 && goalByStepsPerDay <= 10000) {
+        } else if (goalByStepsPerDay <= 10000) {
             text = " Отличная цель, так держать!";
-            return text;
         } else {
             text = " Очень амбициозно, можешь собой гордиться!";
-            return text;
         }
+        return text;
     }
 
     void addNewNumberStepsPerDay() {
@@ -69,7 +67,7 @@ public class StepTracker {
         int monthNum = scanner.nextInt();
         if (monthNum > 0 && monthNum <= 12) {
             MonthData monthData = monthToData[monthNum - 1];
-            monthData.printDaysAndStepsFromMonth(this.goalByStepsPerDay);
+            monthData.printDaysAndStepsFromMonth();
             System.out.println("Общее количество шагов за месяц: " + monthData.sumStepsFromMonth());
             System.out.println("Максимальное количество шагов за месяц: " + monthData.maxSteps());
             System.out.println("Среднее количество шагов за месяц: " + monthData.averageSteps());

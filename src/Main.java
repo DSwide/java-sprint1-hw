@@ -9,27 +9,26 @@ public class Main {
         String name = scanner.nextLine();
         System.out.println("Рады знакомству! " + name + "!");
 
-        while(true) {
-            while(true) {
-                printMenu();
-                int command = scanner.nextInt();
-                if (command == 1) {
-                    stepTracker.addNewNumberStepsPerDay();
-                } else if (command == 2) {
-                    stepTracker.changeStepGoal();
-                } else if (command == 3) {
-                    stepTracker.printStatistic();
-                } else {
-                    if (command == 4) {
-                        System.out.println("Молодцом " + name + "! До скорых встреч!");
-                        return;
-                    }
 
-                    System.out.println("Такой команды еще не существует, пожалуйста выберите команду из списка!");
+        while(true) { //Убрал один из циклов, он появился в результате декомпиляции, не заметил когда восстанавливал код
+            printMenu();
+            int command = scanner.nextInt();
+            if (command == 1) {
+                stepTracker.addNewNumberStepsPerDay();
+            } else if (command == 2) {
+                stepTracker.changeStepGoal();
+            } else if (command == 3) {
+                stepTracker.printStatistic();
+            } else {
+                if (command == 4) {
+                    System.out.println("Молодцом " + name + "! До скорых встреч!");
+                    return;
+                }
+
+                System.out.println("Такой команды еще не существует, пожалуйста выберите команду из списка!");
                 }
             }
         }
-    }
 
     public static void printMenu() {
         System.out.println("Что вы хотите сделать?");
